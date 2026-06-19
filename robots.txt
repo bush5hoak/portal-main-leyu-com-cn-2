@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://bush5hoak.github.io/portal-main-leyu-com-cn-2/sitemap.xml
