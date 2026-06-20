@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>爱游戏 · 简明指南与访问提醒</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    body {
+      font-family: system-ui, -apple-system, "Segoe UI", Roboto, "Noto Sans SC", sans-serif;
+      background: #f4f5f7;
+      line-height: 1.7;
+      color: #1e1e2a;
+    }
+
+    /* 深色头图 ———— 简洁博客式氛围 */
+    .hero {
+      background: #1a1c29;
+      padding: 4rem 1.5rem 3.5rem;
+      text-align: center;
+      color: #e9eaf0;
+    }
+    .hero h1 {
+      font-size: 2.2rem;
+      font-weight: 500;
+      letter-spacing: 2px;
+      margin-bottom: 0.65rem;
+      color: #f0f1f6;
+    }
+    .hero .sub {
+      font-size: 1rem;
+      color: #b1b6c7;
+      max-width: 540px;
+      margin: 0 auto;
+      background: rgba(255, 255, 255, 0.04);
+      padding: 0.5rem 1rem;
+      border-radius: 40px;
+      display: inline-block;
+    }
+
+    /* 正文区 — 浅色卡片感 */
+    .content {
+      max-width: 840px;
+      margin: -2rem auto 3rem;
+      background: #ffffff;
+      padding: 2.8rem 2.5rem;
+      border-radius: 24px 24px 20px 20px;
+      box-shadow: 0 12px 30px rgba(0,0,0,0.04);
+      position: relative;
+      z-index: 2;
+    }
+    @media (max-width: 600px) {
+      .content {
+        padding: 2rem 1.2rem;
+        margin: -1.2rem 0.6rem 2rem;
+        border-radius: 16px;
+      }
+      .hero h1 {
+        font-size: 1.7rem;
+      }
+    }
+
+    /* 文章排版 */
+    .content h2 {
+      font-size: 1.35rem;
+      font-weight: 500;
+      margin: 2rem 0 0.8rem;
+      color: #1f2538;
+      border-left: 4px solid #5b7fff;
+      padding-left: 0.9rem;
+    }
+    .content h2:first-of-type {
+      margin-top: 0.4rem;
+    }
+    .content p {
+      margin-bottom: 1.1rem;
+      font-size: 1rem;
+      color: #2e3346;
+    }
+    .content .intro {
+      font-size: 1.08rem;
+      background: #f7f9fe;
+      padding: 1.2rem 1.5rem;
+      border-radius: 16px;
+      margin-bottom: 1.5rem;
+      color: #1f2538;
+      border: 1px solid #eef0f5;
+    }
+    .content a {
+      color: #3d65e0;
+      text-decoration: none;
+      font-weight: 500;
+      border-bottom: 1px solid transparent;
+      transition: border-color 0.2s, color 0.1s;
+    }
+    .content a:hover {
+      color: #1a3fbf;
+      border-bottom: 1px solid #1a3fbf;
+    }
+
+    /* 引用提示 (blockquote) */
+    .tip-block {
+      background: #f1f4ff;
+      border-left: 5px solid #5b7fff;
+      padding: 1.1rem 1.6rem;
+      margin: 1.8rem 0 1.2rem;
+      border-radius: 0 18px 18px 0;
+      font-size: 0.96rem;
+      color: #1d2942;
+    }
+    .tip-block strong {
+      color: #1f2c4f;
+      font-weight: 600;
+    }
+
+    /* 特色条目卡片 (极简) */
+    .feature-grid {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1rem;
+      margin: 1.5rem 0 1rem;
+    }
+    .feature-item {
+      flex: 1 1 180px;
+      background: #f9faff;
+      padding: 1rem 1.2rem;
+      border-radius: 16px;
+      border: 1px solid #eef1fa;
+    }
+    .feature-item span {
+      display: block;
+      font-weight: 500;
+      color: #1f2538;
+      margin-bottom: 4px;
+    }
+    .feature-item small {
+      color: #4d5670;
+      font-size: 0.9rem;
+    }
+    @media (max-width: 500px) {
+      .feature-grid {
+        flex-direction: column;
+      }
+    }
+
+    /* FAQ 摘要风格 */
+    .faq-mini {
+      background: #fafbfd;
+      border-radius: 18px;
+      padding: 1.2rem 1.5rem;
+      margin: 2rem 0 0.5rem;
+    }
+    .faq-mini p {
+      margin-bottom: 0.4rem;
+      font-size: 0.95rem;
+    }
+    .faq-mini .q {
+      font-weight: 500;
+      color: #1b2340;
+    }
+    .faq-mini .a {
+      color: #3a4160;
+      padding-left: 0.3rem;
+    }
+
+    .visit-line {
+      margin: 2.2rem 0 0.8rem;
+      padding: 1.2rem 1.5rem;
+      background: #f1f5fe;
+      border-radius: 20px;
+      text-align: center;
+      font-size: 1rem;
+    }
+    .visit-line a {
+      font-weight: 600;
+    }
+
+    hr {
+      border: none;
+      border-top: 1px solid #e2e6f0;
+      margin: 2rem 0 1rem;
+    }
+
+    .footer-note {
+      text-align: center;
+      font-size: 0.85rem;
+      color: #6a728c;
+      margin: 0.8rem 0 0.2rem;
+      letter-spacing: 0.3px;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="hero">
+    <h1>爱游戏 · 简引</h1>
+    <div class="sub">一篇日常指南 · 一次踏实访问</div>
+  </div>
+
+  <div class="content">
+
+    <p class="intro">
+      无论你是第一次听说，还是想重新探索，<strong>爱游戏</strong> 都像一份老朋友整理的游戏笔记。没有花哨噱头，只有实在的路径与提醒。这篇从“简明指南”和“访问提醒”出发，帮你快速找到自己的节奏。
+    </p>
+
+    <h2>▎它是什么，不是什么</h2>
+    <p>
+      <strong>爱游戏</strong> 是一个围绕手机游戏讨论、资源索引与社区互动的站点。它不承诺“最新破解”“无限礼包”，也不鼓吹暴富或躺赢。你可以把它理解为一个游戏爱好者的信息聚合地：找攻略、看评测、聊聊关卡心得。保持平常心就好。
+    </p>
+
+    <h2>▎从哪儿开始？一条日常路径</h2>
+    <p>
+      打开主页第一眼是分类卡片或新游速览。如果你想快速定位某款游戏，试试站内搜索框（通常位于顶部）。如果想浏览近期热门，不妨下拉看看“大家正在玩”模块。很多老玩家会直接翻看“实用指南”栏目——那里往往藏着操作细节和隐藏技巧。
+    </p>
+    <p>
+      如果你是谨慎型玩家，可以先花三分钟看看“用户评价”或“避坑提醒”，再决定是否下载某个游戏包。<strong>养成查看评论区习惯</strong>，是高效游戏的第一步。
+    </p>
+
+    <div class="tip-block">
+      <strong>🎯 引用提示：</strong> 在任何陌生页面，默认不随意下载不明文件、不授权敏感权限。<br>
+      信任感是慢慢建立的——不妨多花一分钟感受社区氛围。
+    </div>
+
+    <h2>▎几个值得留意的场景</h2>
+    <div class="feature-grid">
+      <div class="feature-item">
+        <span>📱 新手入坑</span>
+        <small>按照“推荐排序”找热度适中的游戏，避开全五星但评价字数过少的条目。</small>
+      </div>
+      <div class="feature-item">
+        <span>🧩 攻略互助</span>
+        <small>部分老帖仍有参考价值；留意发布年份，版本更新后解法可能已变。</small>
+      </div>
+      <div class="feature-item">
+        <span>🛡️ 安全提醒</span>
+        <small>不点第三方短链，不私下交易。爱游戏官方不代充、不卖号。</small>
+      </div>
+      <div class="feature-item">
+        <span>📌 收藏与回访</span>
+        <small>遇到有用的帖子可以点“收藏”或“书签”，方便后续查阅。</small>
+      </div>
+    </div>
+
+    <h2>▎访问句：一次自然的抵达</h2>
+    <p>
+      如果你对某个游戏突然来了兴致，或者想看看别人如何评价一款新作，可以打开 <a href="https://wap--aiyouxi.com">爱游戏</a> 随手翻翻。那感觉有点像翻一本路边杂志——没有压力，只留印象。页面加载速度尚可，移动端适配也够用，通勤时扫两眼也算惬意。
+    </p>
+    <p>
+      不用把访问当成任务，也不用记住所有功能。逛得舒服就多待一会儿，没感觉就关掉。毕竟玩游戏是为了放松，浏览游戏站也一样。
+    </p>
+
+    <div class="faq-mini">
+      <p class="q">❓ 常见小问（FAQ 摘要）</p>
+      <p><span class="q">Q：</span><span class="a">一定要注册才能看内容吗？</span></p>
+      <p><span class="a">—— 大部分内容可直接浏览，评论或收藏需要简单注册（邮箱或手机）。</span></p>
+      <p><span class="q">Q：</span><span class="a">资源下载安全吗？</span></p>
+      <p><span class="a">—— 站内推荐的下载链接均来自官方商店或开发者页面。仍建议你自行核对签名与包名。</span></p>
+      <p><span class="q">Q：</span><span class="a">遇到不合适的内容怎么办？</span></p>
+      <p><span class="a">—— 可通过页面底部的“反馈”或联系邮箱告知管理组，通常 1-2 个工作日会处理。</span></p>
+    </div>
+
+    <hr>
+
+    <div class="visit-line">
+      🔗 前往 <a href="https://wap--aiyouxi.com">爱游戏</a> · 保持随意，也保持清醒
+    </div>
+
+    <p style="font-size:0.92rem; color:#5a627b; background: #f9faff; padding:0.6rem 1rem; border-radius:40px; margin:0.8rem 0 0;">
+      💡 最后一条私人提醒：别让“刷攻略”挤占你真正玩游戏的时间。指南只是辅助，快乐才是本体。
+    </p>
+
+    <div class="footer-note">
+      爱游戏 · 写在日常里的指南 &nbsp;·&nbsp; 版本提示 2025
+    </div>
+  </div>
+
+</body>
+</html>
