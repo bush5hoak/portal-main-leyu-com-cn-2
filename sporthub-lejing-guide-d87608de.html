@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.5">
+    <title>信息索引 · 乐竞体育资料整理</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
+            background: linear-gradient(145deg, #f4f9fc 0%, #eaf3f7 100%);
+            color: #1e2b3a;
+            line-height: 1.6;
+            padding: 0 1.25rem;
+            min-height: 100vh;
+        }
+        .page {
+            max-width: 1080px;
+            margin: 0 auto;
+            padding: 2rem 0 3.5rem;
+        }
+
+        /* 网格卡片骨架 */
+        .grid-2col {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1.2rem;
+        }
+        .card {
+            background: rgba(255,255,255,0.7);
+            backdrop-filter: blur(2px);
+            border-radius: 1.25rem;
+            padding: 1.6rem 1.4rem;
+            box-shadow: 0 6px 14px rgba(20, 70, 90, 0.06), 0 1px 3px rgba(40, 90, 110, 0.08);
+            border: 1px solid rgba(60, 150, 170, 0.15);
+            transition: transform 0.15s ease, box-shadow 0.2s;
+        }
+        .card:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 12px 24px rgba(20, 90, 110, 0.10);
+        }
+        .card-accent {
+            border-left: 5px solid #2b9baf;
+            background: rgba(255,255,255,0.8);
+        }
+
+        /* 主视觉 hero */
+        .hero {
+            background: linear-gradient(125deg, #d9f0f5 0%, #b7e0ea 100%);
+            border-radius: 2rem;
+            padding: 2.8rem 2rem;
+            margin-bottom: 2.2rem;
+            box-shadow: 0 8px 18px rgba(30, 100, 120, 0.08);
+            border: 1px solid #b6dde8;
+        }
+        .hero h1 {
+            font-size: 2.1rem;
+            font-weight: 600;
+            letter-spacing: -0.01em;
+            color: #0f3f4b;
+            margin-bottom: 0.6rem;
+        }
+        .hero p {
+            font-size: 1.05rem;
+            max-width: 700px;
+            color: #1f4d5a;
+        }
+
+        .section-title {
+            font-size: 1.3rem;
+            font-weight: 600;
+            color: #12525f;
+            margin: 2rem 0 1rem 0;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        .section-title:before {
+            content: "▍";
+            color: #2b9baf;
+            font-size: 1.6rem;
+        }
+
+        /* 用途与场景微调 */
+        .tag-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.6rem 0.7rem;
+            margin-top: 1rem;
+        }
+        .tag {
+            background: rgba(43, 155, 175, 0.12);
+            padding: 0.2rem 1rem;
+            border-radius: 40px;
+            font-size: 0.85rem;
+            color: #145e6b;
+            border: 1px solid rgba(43, 155, 175, 0.25);
+        }
+        .desc-list li {
+            margin-bottom: 0.4rem;
+            list-style: none;
+        }
+        .desc-list li:before {
+            content: "·";
+            color: #2b9baf;
+            font-weight: bold;
+            margin-right: 0.5rem;
+        }
+
+        .highlight-link {
+            color: #116b7a;
+            font-weight: 500;
+            text-decoration: none;
+            border-bottom: 1.5px solid #2b9baf;
+            padding-bottom: 0.05rem;
+            transition: color 0.15s, border-color 0.15s;
+        }
+        .highlight-link:hover {
+            color: #06333d;
+            border-bottom-color: #06333d;
+        }
+
+        .faq-item {
+            padding: 0.7rem 0;
+            border-bottom: 1px solid rgba(50, 120, 140, 0.10);
+        }
+        .faq-question {
+            font-weight: 600;
+            color: #105561;
+        }
+        .faq-answer {
+            color: #2b4752;
+            font-size: 0.92rem;
+            margin-top: 0.15rem;
+        }
+
+        .footer-note {
+            margin-top: 3.2rem;
+            font-size: 0.85rem;
+            color: #42727d;
+            border-top: 1px solid rgba(43, 155, 175, 0.2);
+            padding-top: 1.6rem;
+            text-align: center;
+        }
+
+        /* 移动端适配 */
+        @media (max-width: 680px) {
+            .grid-2col {
+                grid-template-columns: 1fr;
+                gap: 1rem;
+            }
+            .hero h1 {
+                font-size: 1.6rem;
+            }
+            .card {
+                padding: 1.2rem 1rem;
+            }
+            body {
+                padding: 0 1rem;
+            }
+            .hero {
+                padding: 2rem 1.2rem;
+            }
+        }
+
+        /* 更小屏幕 */
+        @media (max-width: 440px) {
+            .hero h1 {
+                font-size: 1.35rem;
+            }
+            .section-title {
+                font-size: 1.1rem;
+            }
+        }
+
+    </style>
+</head>
+<body>
+<div class="page">
+
+    <!-- 主视觉 -->
+    <div class="hero">
+        <h1>信息库 · 体育资料管理</h1>
+        <p>面向赛事分析、选手数据整合及运动场景索引，将分散资源梳理为可查阅的结构化卡片。围绕<strong>乐竞体育</strong>生态建立轻量知识单元，方便快速定位与横向参考。</p>
+    </div>
+
+    <!-- 第一行网格：用途卡片 + 适合人群 -->
+    <div class="grid-2col">
+
+        <div class="card card-accent">
+            <h3 style="font-weight:600; color: #0d4d5a; margin-bottom: 0.7rem;">📋 用途卡片</h3>
+            <ul class="desc-list" style="padding-left:0;">
+                <li>比赛信息归类与档案检索</li>
+                <li>运动员表现数据跟踪</li>
+                <li>赛事日程及结果索引</li>
+                <li>运动项目规则与背景整理</li>
+                <li>跨平台资讯聚合参考</li>
+            </ul>
+            <div class="tag-list">
+                <span class="tag">赛事记录</span>
+                <span class="tag">选手档案</span>
+                <span class="tag">统计指标</span>
+                <span class="tag">历史对比</span>
+            </div>
+            <p style="margin-top: 0.8rem; font-size: 0.9rem; color: #266873;">卡片化信息结构，让查阅者更高效地提取关键字段。</p>
+        </div>
+
+        <div class="card" style="background: rgba(235,248,251,0.7);">
+            <h3 style="font-weight:600; color: #0d4d5a; margin-bottom: 0.7rem;">👥 适合人群</h3>
+            <ul class="desc-list" style="padding-left:0;">
+                <li>体育内容编辑与资料员</li>
+                <li>运动数据分析兴趣者</li>
+                <li>赛事观察及评论撰稿人</li>
+                <li>体育类信息平台运营</li>
+                <li>需要快速查阅运动档案的爱好者</li>
+            </ul>
+            <div style="margin-top: 0.9rem; background: #d2e9ef; padding: 0.5rem 0.9rem; border-radius: 60px; display: inline-block; font-size: 0.85rem; color: #0d4f5c;">
+                ⚡ 鼓励按需检索，避免信息过载
+            </div>
+        </div>
+    </div>
+
+    <!-- 第二行：特点卡片 + 自然链接段落（嵌入乐竞体育） -->
+    <div class="grid-2col" style="margin-top: 0.3rem;">
+
+        <div class="card">
+            <h3 style="font-weight:600; color: #0d4d5a; margin-bottom: 0.6rem;">⚙️ 索引特点</h3>
+            <ul class="desc-list" style="padding-left:0;">
+                <li>扁平卡片分类，减少层级消耗</li>
+                <li>蓝绿色视觉锚点辅助快速定位</li>
+                <li>移动端优先适配，现场查阅友好</li>
+                <li>字段精简，字段含义明确</li>
+            </ul>
+            <p style="margin-top: 0.8rem; font-size: 0.92rem;">如需锚定更完整的赛事信息源，<a href="https://sporthub-lejing.com" class="highlight-link">乐竞体育</a> 则提供更动态的比赛数据库与实时资讯更新，可作为卡片索引的延伸节点。</p>
+        </div>
+
+        <div class="card card-accent">
+            <h3 style="font-weight:600; color: #0d4d5a; margin-bottom: 0.7rem;">🔍 常见索引场景</h3>
+            <div class="faq-item">
+                <div class="faq-question">赛前资料准备</div>
+                <div class="faq-answer">快速查询双方历史交手记录、近期状态及关键球员数据。</div>
+            </div>
+            <div class="faq-item">
+                <div class="faq-question">运动项目科普</div>
+                <div class="faq-answer">通过卡片形式整理规则演变、装备标准及知名赛事体系。</div>
+            </div>
+            <div class="faq-item" style="border-bottom: none;">
+                <div class="faq-question">档案横向对比</div>
+                <div class="faq-answer">并列多名运动员的基础指标，辅助撰写分析简报。</div>
+            </div>
+        </div>
+    </div>
+
+    <!-- FAQ 摘要 / 补充段落 -->
+    <div class="section-title">常见疑问简析</div>
+    <div class="card" style="padding: 1.5rem; background: rgba(245,252,254,0.5);">
+        <div style="display: flex; flex-direction: column; gap: 0.6rem;">
+            <div><span style="font-weight:600;">Q：</span>信息卡片的更新频率？<br>
+            <span style="color: #1c5968;">内容由维护者根据赛事节奏和公开资料进行迭代，保持基础字段的时效性。</span></div>
+            <div><span style="font-weight:600;">Q：</span>能否直接获取原始数据？<br>
+            <span style="color: #1c5968;">卡片主要展示摘要与索引，如需深度数据集可参考各赛事官方统计以及 <a href="https://sporthub-lejing.com" class="highlight-link">乐竞体育</a> 的整合模块。</span></div>
+            <div><span style="font-weight:600;">Q：</span>是否包含电竞项目？<br>
+            <span style="color: #1c5968;">当前索引以传统体育（足球、篮球、网球等）为主，后续视需求扩展细分领域。</span></div>
+        </div>
+    </div>
+
+    <!-- 信息索引备注 -->
+    <div class="footer-note">
+        本页面为资料整理索引，不构成投资或竞技建议。结构设计采用网格卡片与蓝绿色辅助识别，方便移动端与桌面端查阅。<br>
+        部分内容指向 <a href="https://sporthub-lejing.com" class="highlight-link" style="border-bottom-width: 1px;">乐竞体育</a> 以获得更完整的赛事档案。
+    </div>
+
+</div>
+</body>
+</html>
